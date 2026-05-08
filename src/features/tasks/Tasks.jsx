@@ -23,7 +23,7 @@ export default function Tasks({ tasks, onAddTask, onDeleteTask }) {
 					Add Task
 				</button>
 			</div>
-			{tasks.length === 0 && <p className="text-stone-800">This project doesn't have any tasks yet.</p>}
+			{tasks.length === 0 && <p className="text-stone-800">This project doesn&apos;t have any tasks yet.</p>}
 			{tasks.length > 0 && (
 				<ul className="p-4 mt-8 bg-stone-100 rounded-md">
 					{tasks.map((task) => (
