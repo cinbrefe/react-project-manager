@@ -1,5 +1,6 @@
 import { useRef } from "react";
 
+import Button from "../../components/ui/Button";
 import Input from "../../components/ui/Input";
 
 export default function Tasks({ tasks, onAddTask, onDeleteTask }) {
@@ -19,9 +20,7 @@ export default function Tasks({ tasks, onAddTask, onDeleteTask }) {
 			<h2 className="text-2xl font-bold text-stone-700 mb-4">Tasks</h2>
 			<div className="flex gap-4 mb-4">
 				<Input id="task" ref={taskInput} />
-				<button className="text-stone-700 hover:text-stone-950" onClick={handleAddTaskClick}>
-					Add Task
-				</button>
+				<Button onClick={handleAddTaskClick}>Add Task</Button>
 			</div>
 			{tasks.length === 0 && <p className="text-stone-800">This project doesn&apos;t have any tasks yet.</p>}
 			{tasks.length > 0 && (
@@ -29,9 +28,7 @@ export default function Tasks({ tasks, onAddTask, onDeleteTask }) {
 					{tasks.map((task) => (
 						<li className="flex items-center justify-between my-4" key={task.id}>
 							<span>{task.text}</span>
-							<button className="text-stone-700 hover:text-red-500" onClick={() => onDeleteTask(task.id)}>
-								Clear
-							</button>
+							<Button onClick={() => onDeleteTask(task.id)}>Clear</Button>
 						</li>
 					))}
 				</ul>
