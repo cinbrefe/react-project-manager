@@ -1,3 +1,73 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+	@import '@fontsource-variable/inter';
+
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-sans;
+  }
+
+  body {
+    @apply min-h-screen overflow-x-hidden bg-app text-base text-ink-soft leading-relaxed;
+  }
+}
+
+:root {
+	/* Surfaces */
+	--color-app:            #2C2C2A;
+	--color-card:           #F1EFE8;
+	--color-sidebar:        #E4E2DB;
+	/* Ink / text */
+	--color-ink:            #2C2C2A;
+	--color-ink-soft:       #5F5E5A;
+	--color-ink-faint:      #888780;
+	/* Borders */
+	--color-line:           #D3D1C7;
+	/* Accents */
+	--color-accent:         #2C2C2A;
+	--color-highlight:      #D4537E;
+	--color-highlight-soft: #FBEAF0;
+	/* Status */
+	--color-done:           #1D9E75;
+	--color-done-soft:      #E1F5EE;
+	--color-soon:           #EF9F27;
+	--color-soon-soft:      #FAEEDA;
+	--color-soon-ink:       #854F0B;
+	--color-overdue:        #E24B4A;
+	--color-overdue-soft:   #FCEBEB;
+	--color-overdue-ink:    #A32D2D;
+	}
+
+	@layer components {
+	/* Headings */
+	.text-page-title {
+		@apply text-3xl font-semibold text-ink;
+	}
+	.text-heading {
+		@apply text-2xl font-semibold text-ink;
+	}
+
+	.text-subheading {
+		@apply text-1xl font-semibold text-ink;
+	}
+
+	/* Body */
+	.text-body {
+		@apply text-base text-ink-soft leading-relaxed;
+	}
+	.text-muted {
+		@apply text-ink-faint;
+	}
+
+	/* Labels & inputs */
+	.text-label {
+		@apply text-sm tracking-wide text-ink-soft;
+	}
+
+	/* Feedback */
+	.text-error {
+		@apply text-sm text-overdue;
+	}
+}

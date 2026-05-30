@@ -44,13 +44,16 @@ export function useProjectState() {
 	}
 
 	function handleDeleteProject() {
-		setProjectState((prevState) => ({
-			...prevState,
-			selectedProjectId: undefined,
-			projects: prevState.projects.filter(
+		setProjectState((prevState) => {
+			const remaining = prevState.projects.filter(
 				(project) => project.id !== prevState.selectedProjectId
-			),
-		}));
+			);
+			return {
+				...prevState,
+				selectedProjectId: remaining.length > 0 ? remaining[0].id : undefined,
+				projects: remaining,
+			};
+		});
 	}
 
 	function handleAddTask(task) {

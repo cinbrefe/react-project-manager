@@ -36,7 +36,7 @@ function App() {
 	}
 
 	return (
-		<main className="h-screen flex gap-8">
+		<main className="w-full bg-card flex flex-col min-h-screen md:max-w-5xl md:mx-8 md:my-8 md:flex-row md:min-h-fit md:rounded-[8px] md:shadow-lg xl:mx-auto">
 			<Sidebar
 				onAddStartedProject={handleStartedAddProject}
 				projects={projectState.projects}

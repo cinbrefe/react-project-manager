@@ -1,12 +1,15 @@
+import { Calendar, Trash2 } from "lucide-react";
+
 import Button from "../../components/ui/Button";
 import Tasks from "../tasks/Tasks";
+import ContentPanel from "../../components/ui/ContentPanel";
 
 export default function Project({ project, onDelete, onAddTask, onDeleteTask }) {
 	if (!project) {
 		return (
-			<section className="w-[35rem] mt-16">
-				<p className="text-red-500">Project not found.</p>
-			</section>
+			<ContentPanel className="flex-1">
+				<p className="text-error">Project not found.</p>
+			</ContentPanel>
 		);
 	}
 
@@ -17,16 +20,22 @@ export default function Project({ project, onDelete, onAddTask, onDeleteTask }) 
 	});
 
 	return (
-		<section className="w-[35rem] mt-16">
-			<header className="pb-4 mb-4 border-b-2 border-stone-300">
-				<div className="flex items-center gap-4 justify-between">
-					<h1 className="text-3xl font-bold text-stone-600 mb-2">{project.title}</h1>
-					<Button onClick={onDelete}>Delete</Button>
+		<ContentPanel>
+			<header className="pb-4 mb-4">
+				<div className="flex items-start gap-2 justify-between mb-1">
+					<h1 className="text-page-title">{project.title}</h1>
+					<Button variant="ghost" onClick={onDelete} className="flex items-center gap-2">
+						<Trash2 size={16} className="mr-1" />
+						Delete
+					</Button>
 				</div>
-				<p className="mb-4 text-stone-400">{formattedDate}</p>
-				<p className="text-stone-600 whitespace-pre-wrap">{project.description}</p>
+				<div className="inline-flex items-center gap-1.5 rounded-md bg-white border border-line text-xs text-ink-soft py-0.5 px-2.5 mb-3">
+					<Calendar size={13} className="shrink-0" />
+					{formattedDate}
+				</div>
+				<p className="whitespace-pre-wrap">{project.description}</p>
 			</header>
 			<Tasks tasks={project.tasks} onAddTask={onAddTask} onDeleteTask={onDeleteTask} />
-		</section>
+		</ContentPanel>
 	);
 }

@@ -15,9 +15,9 @@ export default function Modal({ children, buttonCaption, isOpen, onClose }) {
 	}, [isOpen]);
 
 	return createPortal(
-		<dialog ref={dialog} className="backdrop:bg-stone-900/90 p-4 rounded-md shadow-md">
+		<dialog ref={dialog} className="w-[90vw] max-w-md max-h-[80vh] overflow-y-auto p-6 rounded-md shadow-md backdrop:bg-ink/80">
 			{children}
-			<form method="dialog" className="mt-4 text-right">
+			<form method="dialog" className="mt-4 flex justify-end">
 				<Button onClick={onClose}>{buttonCaption}</Button>
 			</form>
 		</dialog>,
