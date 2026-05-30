@@ -7,7 +7,8 @@ A project management app built with React that lets you create, organize, and tr
 - Create projects with a title, description, and due date
 - View and switch between projects from a sidebar
 - Add and delete tasks within each project
-- Clean, responsive UI with Tailwind CSS
+- Clean, responsive UI with Tailwind CSS and custom design
+- Icons via Lucide React
 
 ## Tech Stack
 
@@ -18,6 +19,8 @@ A project management app built with React that lets you create, organize, and tr
 | [Tailwind CSS](https://tailwindcss.com/) | 3 | Utility-first styling |
 | [PostCSS](https://postcss.org/) | 8 | CSS processing |
 | [ESLint](https://eslint.org/) | 8 | Linting |
+| [Lucide React](https://lucide.dev/) | latest | Icon library |
+| [@fontsource-variable/inter](https://fontsource.org/fonts/inter) | latest | Self-hosted Inter variable font |
 
 ## Project Structure
 
@@ -50,6 +53,10 @@ npm run dev
 ```
 
 The app will be available at `http://localhost:5173`.
+
+### Fonts
+
+This project uses the [Inter](https://rsms.me/inter/) variable font served locally via `@fontsource-variable/inter` — no CDN or internet connection required at runtime. The font files are installed automatically with `npm install` and imported in `src/index.css`.
 
 ## Scripts
 
