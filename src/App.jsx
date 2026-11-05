@@ -1,9 +1,9 @@
-import { useProjectState } from "./hooks/useProjectState";
+import { useProjectState } from './hooks/useProjectState';
 
-import Sidebar from "./features/projects/Sidebar";
-import NoProjectSelected from "./features/projects/NoProjectSelected";
-import NewProject from "./features/projects/NewProject";
-import Project from "./features/projects/Project";
+import Sidebar from './features/projects/Sidebar';
+import NoProjectSelected from './features/projects/NoProjectSelected';
+import NewProject from './features/projects/NewProject';
+import Project from './features/projects/Project';
 
 function App() {
 	const {
@@ -36,7 +36,7 @@ function App() {
 	}
 
 	return (
-		<main className="w-full bg-card flex flex-col min-h-screen md:max-w-5xl md:mx-8 md:my-8 md:flex-row md:min-h-fit md:rounded-[8px] md:shadow-lg xl:mx-auto">
+		<main className='w-full bg-card flex flex-col min-h-screen md:max-w-5xl md:mx-8 md:my-8 md:flex-row md:min-h-fit md:rounded-[8px] md:shadow-lg xl:mx-auto'>
 			<Sidebar
 				onAddStartedProject={handleStartedAddProject}
 				projects={projectState.projects}

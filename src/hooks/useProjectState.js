@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export function useProjectState() {
 	const [projectState, setProjectState] = useState({
@@ -45,9 +45,7 @@ export function useProjectState() {
 
 	function handleDeleteProject() {
 		setProjectState((prevState) => {
-			const remaining = prevState.projects.filter(
-				(project) => project.id !== prevState.selectedProjectId
-			);
+			const remaining = prevState.projects.filter((project) => project.id !== prevState.selectedProjectId);
 			return {
 				...prevState,
 				selectedProjectId: remaining.length > 0 ? remaining[0].id : undefined,
@@ -62,7 +60,7 @@ export function useProjectState() {
 			projects: prevState.projects.map((project) =>
 				project.id === prevState.selectedProjectId
 					? { ...project, tasks: [...project.tasks, { id: Math.random().toString(), text: task }] }
-					: project
+					: project,
 			),
 		}));
 	}
@@ -73,14 +71,12 @@ export function useProjectState() {
 			projects: prevState.projects.map((project) =>
 				project.id === prevState.selectedProjectId
 					? { ...project, tasks: project.tasks.filter((task) => task.id !== taskId) }
-					: project
+					: project,
 			),
 		}));
 	}
 
-	const selectedProject = projectState.projects.find(
-		(project) => project.id === projectState.selectedProjectId
-	);
+	const selectedProject = projectState.projects.find((project) => project.id === projectState.selectedProjectId);
 
 	return {
 		projectState,
