@@ -1,9 +1,9 @@
 import { useState, useRef } from 'react';
 
-import Input from '../../components/ui/Input';
-import Button from '../../components/ui/Button';
-import Modal from '../../components/ui/Modal';
-import ContentPanel from '../../components/ui/ContentPanel';
+import Input from '@/components/ui/Input/Input';
+import Button from '@/components/ui/Button/Button';
+import Modal from '@/components/ui/Modal/Modal';
+import ContentPanel from '@/components/ui/ContentPanel/ContentPanel';
 
 export default function NewProject({ onAdd, onCancel }) {
 	const title = useRef();

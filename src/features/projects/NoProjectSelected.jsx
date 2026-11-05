@@ -1,6 +1,6 @@
 import noProjectsImg from '../../assets/no-projects.png';
-import Button from '../../components/ui/Button';
-import ContentPanel from '../../components/ui/ContentPanel';
+import Button from '@/components/ui/Button/Button';
+import ContentPanel from '@/components/ui/ContentPanel/ContentPanel';
 
 export default function NoProjectSelected({ onAddStartedProject }) {
 	return (

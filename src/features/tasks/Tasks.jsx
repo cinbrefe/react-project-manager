@@ -1,8 +1,8 @@
 import { useRef } from 'react';
 import { ClipboardList, X } from 'lucide-react';
 
-import Button from '../../components/ui/Button';
-import Input from '../../components/ui/Input';
+import Button from '@/components/ui/Button/Button';
+import Input from '@/components/ui/Input/Input';
 
 export default function Tasks({ tasks, onAddTask, onDeleteTask }) {
 	const taskInput = useRef();

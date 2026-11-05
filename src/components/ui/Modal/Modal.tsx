@@ -1,7 +1,7 @@
 import { useRef, useEffect, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
-import Button from './Button';
+import Button from '@/components/ui/Button/Button';
 
 type ModalProps = {
 	children: ReactNode;

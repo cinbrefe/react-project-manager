@@ -1,8 +1,8 @@
 import { Calendar, Trash2 } from 'lucide-react';
 
-import Button from '../../components/ui/Button';
+import Button from '@/components/ui/Button/Button';
 import Tasks from '../tasks/Tasks';
-import ContentPanel from '../../components/ui/ContentPanel';
+import ContentPanel from '@/components/ui/ContentPanel/ContentPanel';
 
 export default function Project({ project, onDelete, onAddTask, onDeleteTask }) {
 	if (!project) {

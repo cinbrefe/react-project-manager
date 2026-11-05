@@ -1,6 +1,6 @@
 import { Folder } from 'lucide-react';
 
-import Button from '../../components/ui/Button';
+import Button from '@/components/ui/Button/Button';
 
 export default function Sidebar({ onAddStartedProject, projects, onViewProject, selectedProjectId }) {
 	return (
