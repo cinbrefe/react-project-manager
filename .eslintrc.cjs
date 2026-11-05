@@ -9,10 +9,21 @@ module.exports = {
 	],
 	ignorePatterns: ['dist', '.eslintrc.cjs'],
 	parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-	settings: { react: { version: '18.2' } },
+	settings: { react: { version: 'detect' } },
 	plugins: ['react-refresh'],
 	rules: {
 		'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
 		'react/prop-types': 'off',
 	},
+	overrides: [
+		{
+			files: ['*.ts', '*.tsx'],
+			parser: '@typescript-eslint/parser',
+			plugins: ['@typescript-eslint'],
+			extends: ['plugin:@typescript-eslint/recommended'],
+			rules: {
+				'@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }],
+			},
+		},
+	],
 };
