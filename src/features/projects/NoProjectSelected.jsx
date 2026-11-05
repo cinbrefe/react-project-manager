@@ -1,4 +1,4 @@
-import noProjectsImg from '../../assets/no-projects.png';
+import noProjectsImg from '@/assets/no-projects.png';
 import Button from '@/components/ui/Button/Button';
 import ContentPanel from '@/components/ui/ContentPanel/ContentPanel';
 
