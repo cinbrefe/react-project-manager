@@ -15,10 +15,12 @@ A project management app built with React that lets you create, organize, and tr
 | Tool | Version | Purpose |
 |------|---------|---------|
 | [React](https://react.dev/) | 19 | UI library |
+| [TypeScript](https://www.typescriptlang.org/) | 6 | Type checking (UI components are `.tsx`) |
 | [Vite](https://vitejs.dev/) | 4 | Build tool and dev server |
 | [Tailwind CSS](https://tailwindcss.com/) | 3 | Utility-first styling |
 | [PostCSS](https://postcss.org/) | 8 | CSS processing |
-| [ESLint](https://eslint.org/) | 8 | Linting |
+| [ESLint](https://eslint.org/) | 9 | Linting (flat config in `eslint.config.js`) |
+| [Prettier](https://prettier.io/) | 3 | Code formatting |
 | [Lucide React](https://lucide.dev/) | latest | Icon library |
 | [@fontsource-variable/inter](https://fontsource.org/fonts/inter) | latest | Self-hosted Inter variable font |
 
@@ -26,7 +28,12 @@ A project management app built with React that lets you create, organize, and tr
 
 ```
 src/
-├── components/ui/       # Reusable UI components (Button, Input, Modal)
+├── assets/              # Images
+├── components/ui/       # Reusable UI components, one folder each
+│   ├── Button/
+│   ├── ContentPanel/
+│   ├── Input/
+│   └── Modal/
 ├── features/
 │   ├── projects/        # Project creation, display, and sidebar
 │   └── tasks/           # Task list management
@@ -34,6 +41,12 @@ src/
 │   └── useProjectState.js  # Custom hook for app state
 ├── App.jsx
 └── main.jsx
+```
+
+Imports use the `@/` alias, which points to `src/` (configured in `vite.config.js` and `tsconfig.json`):
+
+```js
+import Button from '@/components/ui/Button/Button';
 ```
 
 ## Installation
@@ -66,3 +79,15 @@ This project uses the [Inter](https://rsms.me/inter/) variable font served local
 | `npm run build` | Build for production |
 | `npm run preview` | Preview production build |
 | `npm run lint` | Run ESLint |
+| `npm run typecheck` | Type-check with TypeScript (no output files) |
+| `npm run format` | Format all files with Prettier |
+
+## Contributing
+
+Before every commit, run:
+
+```bash
+npm run format
+```
+
+This makes sure new files are formatted too, not just the ones you edited. It's also worth running `npm run lint` and `npm run typecheck` before you push.
