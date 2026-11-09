@@ -1,7 +1,9 @@
 import { useState } from 'react';
 
+import type { Project, ProjectState, NewProjectData } from '@/types';
+
 export function useProjectState() {
-	const [projectState, setProjectState] = useState({
+	const [projectState, setProjectState] = useState<ProjectState>({
 		selectedProjectId: undefined,
 		projects: [],
 	});
@@ -13,9 +15,9 @@ export function useProjectState() {
 		}));
 	}
 
-	function handleAddProject(projectData) {
+	function handleAddProject(projectData: NewProjectData) {
 		setProjectState((prevState) => {
-			const newProject = {
+			const newProject: Project = {
 				...projectData,
 				id: Math.random().toString(),
 				tasks: [],
@@ -36,7 +38,7 @@ export function useProjectState() {
 		}));
 	}
 
-	function handleViewProject(projectId) {
+	function handleViewProject(projectId: string) {
 		setProjectState((prevState) => ({
 			...prevState,
 			selectedProjectId: projectId,
@@ -54,18 +56,18 @@ export function useProjectState() {
 		});
 	}
 
-	function handleAddTask(task) {
+	function handleAddTask(text: string) {
 		setProjectState((prevState) => ({
 			...prevState,
 			projects: prevState.projects.map((project) =>
 				project.id === prevState.selectedProjectId
-					? { ...project, tasks: [...project.tasks, { id: Math.random().toString(), text: task }] }
+					? { ...project, tasks: [...project.tasks, { id: Math.random().toString(), text }] }
 					: project,
 			),
 		}));
 	}
 
-	function handleDeleteTask(taskId) {
+	function handleDeleteTask(taskId: string) {
 		setProjectState((prevState) => ({
 			...prevState,
 			projects: prevState.projects.map((project) =>
