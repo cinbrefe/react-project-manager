@@ -1,9 +1,9 @@
-import { useProjectState } from './hooks/useProjectState';
+import { useProjectState } from '@/hooks/useProjectState';
 
-import Sidebar from './features/projects/Sidebar';
-import NoProjectSelected from './features/projects/NoProjectSelected';
-import NewProject from './features/projects/NewProject';
-import Project from './features/projects/Project';
+import Sidebar from '@/features/projects/Sidebar';
+import NoProjectSelected from '@/features/projects/NoProjectSelected';
+import NewProject from '@/features/projects/NewProject';
+import Project from '@/features/projects/Project';
 
 function App() {
 	const {
