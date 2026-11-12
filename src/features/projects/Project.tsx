@@ -1,10 +1,18 @@
 import { Calendar, Trash2 } from 'lucide-react';
 
 import Button from '@/components/ui/Button/Button';
-import Tasks from '@/features/tasks/Tasks';
 import ContentPanel from '@/components/ui/ContentPanel/ContentPanel';
+import Tasks from '@/features/tasks/Tasks';
+import type { Project as ProjectType } from '@/types';
 
-export default function Project({ project, onDelete, onAddTask, onDeleteTask }) {
+type ProjectProps = {
+	project: ProjectType | undefined;
+	onDelete: () => void;
+	onAddTask: (task: string) => void;
+	onDeleteTask: (taskId: string) => void;
+};
+
+export default function Project({ project, onDelete, onAddTask, onDeleteTask }: ProjectProps) {
 	if (!project) {
 		return (
 			<ContentPanel className='flex-1'>

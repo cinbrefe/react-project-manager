@@ -1,8 +1,16 @@
 import { Folder } from 'lucide-react';
 
 import Button from '@/components/ui/Button/Button';
+import type { Project } from '@/types';
 
-export default function Sidebar({ onAddStartedProject, projects, onViewProject, selectedProjectId }) {
+type SidebarProps = {
+	onAddStartedProject: () => void;
+	projects: Project[];
+	onViewProject: (projectId: string) => void;
+	selectedProjectId: string | null | undefined;
+};
+
+export default function Sidebar({ onAddStartedProject, projects, onViewProject, selectedProjectId }: SidebarProps) {
 	return (
 		<aside className='w-full md:w-64 md:shrink-0 px-6 py-6 md:px-8 md:py-10 bg-sidebar border-b md:border-b-0 md:border-r border-line/60 md:rounded-l-[8px]'>
 			<div className='flex items-center justify-between md:flex-col md:items-start md:gap-4 mb-4 md:mb-8'>

@@ -2,7 +2,11 @@ import noProjectsImg from '@/assets/no-projects.png';
 import Button from '@/components/ui/Button/Button';
 import ContentPanel from '@/components/ui/ContentPanel/ContentPanel';
 
-export default function NoProjectSelected({ onAddStartedProject }) {
+type NoProjectSelectedProps = {
+	onAddStartedProject: () => void;
+};
+
+export default function NoProjectSelected({ onAddStartedProject }: NoProjectSelectedProps) {
 	return (
 		<ContentPanel className='flex flex-col items-center justify-center flex-1 gap-4 text-center'>
 			<img src={noProjectsImg} alt='An empty task list' className='w-20 h-20 object-contain' />

@@ -3,16 +3,27 @@ import { ClipboardList, X } from 'lucide-react';
 
 import Button from '@/components/ui/Button/Button';
 import Input from '@/components/ui/Input/Input';
+import type { Task } from '@/types';
 
-export default function Tasks({ tasks, onAddTask, onDeleteTask }) {
-	const taskInput = useRef();
+type TasksProps = {
+	tasks: Task[];
+	onAddTask: (task: string) => void;
+	onDeleteTask: (taskId: string) => void;
+};
+
+export default function Tasks({ tasks, onAddTask, onDeleteTask }: TasksProps) {
+	const taskInput = useRef<HTMLInputElement>(null);
 
 	function handleAddTaskClick() {
-		const enteredTask = taskInput.current.value;
+		const input = taskInput.current;
+		if (!input) return;
+
+		const enteredTask = input.value;
 
 		if (enteredTask.trim() !== '') {
 			onAddTask(enteredTask);
-			taskInput.current.value = '';
+			input.value = '';
+			input.focus();
 		}
 	}
 
