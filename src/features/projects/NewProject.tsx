@@ -4,21 +4,33 @@ import Input from '@/components/ui/Input/Input';
 import Button from '@/components/ui/Button/Button';
 import Modal from '@/components/ui/Modal/Modal';
 import ContentPanel from '@/components/ui/ContentPanel/ContentPanel';
+import type { NewProjectData } from '@/types';
 
-export default function NewProject({ onAdd, onCancel }) {
-	const title = useRef();
-	const description = useRef();
-	const dueDate = useRef();
+type NewProjectProps = {
+	onAdd: (newProjectData: NewProjectData) => void;
+	onCancel: () => void;
+};
+
+export default function NewProject({ onAdd, onCancel }: NewProjectProps) {
+	const title = useRef<HTMLInputElement>(null);
+	const description = useRef<HTMLTextAreaElement>(null);
+	const dueDate = useRef<HTMLInputElement>(null);
 
 	const [modalOpen, setModalOpen] = useState(false);
-	const [errors, setErrors] = useState([]);
+	const [errors, setErrors] = useState<string[]>([]);
 
 	function handleClick() {
-		const enteredTitle = title.current.value;
-		const enteredDescription = description.current.value;
-		const enteredDueDate = dueDate.current.value;
+		const titleInput = title.current;
+		const descriptionInput = description.current;
+		const dueDateInput = dueDate.current;
 
-		const newErrors = [];
+		if (!titleInput || !descriptionInput || !dueDateInput) return;
+
+		const enteredTitle = titleInput.value;
+		const enteredDescription = descriptionInput.value;
+		const enteredDueDate = dueDateInput.value;
+
+		const newErrors: string[] = [];
 		if (enteredTitle.trim() === '') newErrors.push('Title is required.');
 		if (enteredDescription.trim() === '') newErrors.push('Description is required.');
 		if (enteredDueDate.trim() === '') newErrors.push('Due date is required.');
