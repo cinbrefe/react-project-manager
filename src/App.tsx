@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 import { useProjectState } from '@/hooks/useProjectState';
 
 import Sidebar from '@/features/projects/Sidebar';
@@ -18,7 +20,7 @@ function App() {
 		handleDeleteTask,
 	} = useProjectState();
 
-	let content;
+	let content: ReactNode;
 
 	if (projectState.selectedProjectId === null) {
 		content = <NewProject onCancel={handleCancelAddProject} onAdd={handleAddProject} />;
