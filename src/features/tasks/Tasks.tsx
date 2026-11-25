@@ -51,10 +51,12 @@ export default function Tasks({ tasks, onAddTask, onDeleteTask }: TasksProps) {
 						>
 							<span>{task.text}</span>
 							<button
+								type='button'
+								aria-label={`Delete task: ${task.text}`}
 								onClick={() => onDeleteTask(task.id)}
 								className='text-ink-faint hover:text-overdue transition-colors'
 							>
-								<X size={16} />
+								<X size={16} aria-hidden='true' />
 							</button>
 						</li>
 					))}

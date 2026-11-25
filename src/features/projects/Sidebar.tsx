@@ -21,6 +21,8 @@ export default function Sidebar({ onAddStartedProject, projects, onViewProject, 
 				{projects.map((project) => (
 					<li key={project.id}>
 						<button
+							type='button'
+							aria-current={project.id === selectedProjectId ? 'true' : undefined}
 							className={`min-w-0 md:min-w-0 md:w-full text-left px-3 py-2 rounded-md text-sm transition-colors flex items-center gap-2 ${
 								project.id === selectedProjectId
 									? 'bg-accent text-white font-medium'
